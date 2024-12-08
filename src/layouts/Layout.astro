@@ -2,7 +2,16 @@
 
 ---
 
-<!doctype html>
+<script>
+	const menuButton = document.getElementById("menu-button");
+	const menu = document.getElementById("menu");
+
+	menuButton.addEventListener("click", () => {
+		menu.classList.toggle("hidden");
+		menu.classList.toggle("flex");
+	});
+</script>
+
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
@@ -14,43 +23,71 @@
 	<body>
 		<header>
 			<nav
-				class="bg-gradient-to-r from-[#F9F5F6] via-[#F8E8EE] to-[#FDD8DF] py-6 px-8 shadow-xl fixed w-full top-0 z-50"
+				class="bg-gradient-to-r from-[#F9F5F6] via-[#F8E8EE] to-[#FDD8DF] py-6 px-4 shadow-xl fixed w-full top-0 z-50"
 			>
 				<div class="flex items-center justify-between">
 					<!-- Logo/Brand -->
-					<div class="text-3xl font-serif text-[#242424] flex gap-2">
+					<div class="text-clamp font-serif text-[#242424] flex gap-2">
 						🌸 <span class="font-bold text-[#D9A0D2]">Blanca</span> Makeup
 					</div>
 
+					<!-- Hamburger Menu -->
+					<button
+						id="menu-button"
+						class="lg:hidden text-[#242424] focus:outline-none focus:ring-2 focus:ring-[#D9A0D2]"
+						aria-label="Toggle Menu"
+					>
+						<svg
+							class="w-6 h-6"
+							xmlns="http://www.w3.org/2000/svg"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="currentColor"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M4 6h16M4 12h16m-7 6h7"></path>
+						</svg>
+					</button>
+
 					<!-- Navigation Links -->
 					<ul
-						class="flex space-x-8 text-lg font-semibold text-[#242424] relative"
+						id="menu"
+						class="hidden lg:flex lg:space-x-8 lg:static lg:flex-row flex-col space-y-4 lg:space-y-0 lg:text-lg font-semibold text-[#242424] absolute top-[100%] left-0 bg-[#F9F5F6] w-full shadow-lg lg:shadow-none lg:bg-transparent"
 					>
 						<li>
 							<a
 								href="#home"
-								class="underline-expand relative hover:text-[#D9A0D2]">Inicio</a
+								class="block py-2 px-4 lg:inline-block hover:text-[#D9A0D2]"
 							>
+								Inicio
+							</a>
 						</li>
 						<li>
 							<a
 								href="#projects"
-								class="underline-expand relative hover:text-[#D9A0D2]"
-								>Proyectos</a
+								class="block py-2 px-4 lg:inline-block hover:text-[#D9A0D2]"
 							>
+								Proyectos
+							</a>
 						</li>
 						<li>
 							<a
 								href="#press"
-								class="underline-expand relative hover:text-[#D9A0D2]">Prensa</a
+								class="block py-2 px-4 lg:inline-block hover:text-[#D9A0D2]"
 							>
+								Prensa
+							</a>
 						</li>
 						<li>
 							<a
 								href="#contact"
-								class="underline-expand relative hover:text-[#D9A0D2]"
-								>Contacto</a
+								class="block py-2 px-4 lg:inline-block hover:text-[#D9A0D2]"
 							>
+								Contacto
+							</a>
 						</li>
 					</ul>
 				</div>
