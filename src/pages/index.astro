@@ -6,6 +6,7 @@ import SectionTitle from "../components/SectionTitle.astro";
 import SectionItems from "../components/SectionItems.astro";
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
+import img1 from "../../public/images/champloo.jpg";
 ---
 
 <Layout>
@@ -17,7 +18,7 @@ import { Image } from "astro:assets";
 			muted
 			loop
 		>
-			<source src="src/media/video.mp4" type="video/mp4" />
+			<source src="../../public/media/video.mp4" type="video/mp4" />
 			Tu navegador no soporta videos HTML5.
 		</video>
 
@@ -129,24 +130,24 @@ import { Image } from "astro:assets";
 		<SectionItems
 			styles="grid grid-cols-3 grid-rows-2 gap-2 rounded-md max-h-[600px]"
 		>
-			<img
+			<Image
+				src={img1}
 				class="col-span-1 row-span-1 object-cover h-full w-full"
-				src="src/icons/champloo.jpg"
 				alt="Img 1"
 			/>
-			<img
+			<Image
+				src={img1}
 				class="col-span-2 row-span-1 object-cover h-full w-full"
-				src="src/icons/champloo.jpg"
 				alt="Img 1"
 			/>
-			<img
+			<Image
+				src={img1}
 				class="col-span-1 row-span-1 object-cover h-full w-full"
-				src="src/icons/champloo.jpg"
 				alt="Img 1"
 			/>
-			<img
+			<Image
+				src={img1}
 				class="col-span-2 row-span-1 object-cover h-full w-full"
-				src="src/icons/champloo.jpg"
 				alt="Img 1"
 			/>
 		</SectionItems>
