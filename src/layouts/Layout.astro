@@ -1,22 +1,101 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/svg+xml" href="src/icons/makeup.png" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>Blanca Miguel Villarmin</title>
 	</head>
 	<body>
-		<slot />
+		<header>
+			<nav
+				class="bg-gradient-to-r from-[#F9F5F6] via-[#F8E8EE] to-[#FDD8DF] py-6 px-8 shadow-xl fixed w-full top-0 z-50"
+			>
+				<div class="flex items-center justify-between">
+					<!-- Logo/Brand -->
+					<div class="text-3xl font-serif text-[#242424] flex gap-2">
+						🌸 <span class="font-bold text-[#D9A0D2]">Blanca</span> Makeup
+					</div>
+
+					<!-- Navigation Links -->
+					<ul
+						class="flex space-x-8 text-lg font-semibold text-[#242424] relative"
+					>
+						<li>
+							<a
+								href="#home"
+								class="underline-expand relative hover:text-[#D9A0D2]">Inicio</a
+							>
+						</li>
+						<li>
+							<a
+								href="#projects"
+								class="underline-expand relative hover:text-[#D9A0D2]"
+								>Proyectos</a
+							>
+						</li>
+						<li>
+							<a
+								href="#press"
+								class="underline-expand relative hover:text-[#D9A0D2]">Prensa</a
+							>
+						</li>
+						<li>
+							<a
+								href="#contact"
+								class="underline-expand relative hover:text-[#D9A0D2]"
+								>Contacto</a
+							>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</header>
+		<main>
+			<slot />
+		</main>
 	</body>
 </html>
 
 <style>
+	@import url("https://fonts.googleapis.com/css2?family=Delius&display=swap");
+	:global(:root) {
+		--font-family-sans: "Delius", cursive;
+	}
+
 	html,
 	body {
 		margin: 0;
 		width: 100%;
 		height: 100%;
+		font-family: var(--font-family-sans);
+	}
+	main {
+		margin: 0 auto;
+		max-width: 1280px;
+		padding: 0 2rem;
+	}
+
+	.underline-expand::before {
+		content: "";
+		position: absolute;
+		left: 50%;
+		bottom: 0;
+		width: 0;
+		height: 2px;
+		background-color: #d9a0d2; /* Color de la subrayado */
+		transition:
+			width 0.3s ease,
+			left 0.3s ease;
+	}
+
+	.underline-expand:hover::before {
+		width: 100%;
+		left: 0;
 	}
 </style>
