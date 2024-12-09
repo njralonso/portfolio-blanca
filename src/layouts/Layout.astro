@@ -1,5 +1,5 @@
 ---
-
+import Header from "../components/Header.astro";
 ---
 
 <script>
@@ -21,78 +21,7 @@
 		<title>Blanca Miguel Villarmin</title>
 	</head>
 	<body>
-		<header>
-			<nav
-				class="bg-gradient-to-r from-[#F9F5F6] via-[#F8E8EE] to-[#FDD8DF] py-2 px-4 lg:px-8 shadow-xl fixed w-full top-0 z-50"
-			>
-				<div class="flex items-center justify-between">
-					<!-- Logo/Brand -->
-					<div class="text-clamp font-serif text-[#242424] flex gap-2">
-						🌸 <span class="font-bold text-[#D9A0D2]">Blanca</span> Makeup
-					</div>
-
-					<!-- Hamburger Menu -->
-					<button
-						id="menu-button"
-						class="lg:hidden text-[#242424] focus:outline-none focus:ring-2 focus:ring-[#D9A0D2]"
-						aria-label="Toggle Menu"
-					>
-						<svg
-							class="w-6 h-6"
-							xmlns="http://www.w3.org/2000/svg"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke="currentColor"
-						>
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="2"
-								d="M4 6h16M4 12h16m-7 6h7"></path>
-						</svg>
-					</button>
-
-					<!-- Navigation Links -->
-					<ul
-						id="menu"
-						class="hidden lg:flex lg:space-x-8 lg:static lg:flex-row flex-col space-y-4 lg:space-y-0 lg:text-lg font-semibold text-[#242424] absolute top-[100%] left-0 bg-[#F9F5F6] w-full shadow-lg lg:shadow-none lg:bg-transparent lg:justify-end"
-					>
-						<li class="">
-							<a
-								href="#home"
-								class="block lg:inline-block hover:text-[#D9A0D2] underline-expand relative"
-							>
-								Inicio
-							</a>
-						</li>
-						<li class="">
-							<a
-								href="#projects"
-								class="block lg:inline-block hover:text-[#D9A0D2] underline-expand relative"
-							>
-								Proyectos
-							</a>
-						</li>
-						<li class="">
-							<a
-								href="#press"
-								class="block lg:inline-block hover:text-[#D9A0D2] underline-expand relative"
-							>
-								Prensa
-							</a>
-						</li>
-						<li class="">
-							<a
-								href="#contact"
-								class="block lg:inline-block hover:text-[#D9A0D2] underline-expand relative"
-							>
-								Contacto
-							</a>
-						</li>
-					</ul>
-				</div>
-			</nav>
-		</header>
+		<Header />
 		<main>
 			<slot />
 		</main>
@@ -105,6 +34,12 @@
 		--font-family-sans: "Delius", cursive;
 	}
 
+	html {
+		background-color: #dfdbe5;
+		background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%239C92AC' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
+	}
+
+	,
 	html,
 	body {
 		margin: 0;
@@ -116,23 +51,5 @@
 		margin: 0 auto;
 		max-width: 1280px;
 		padding: 0 2rem;
-	}
-
-	.underline-expand::before {
-		content: "";
-		position: absolute;
-		left: 50%;
-		bottom: 0;
-		width: 0;
-		height: 2px;
-		background-color: #d9a0d2; /* Color de la subrayado */
-		transition:
-			width 0.3s ease,
-			left 0.3s ease;
-	}
-
-	.underline-expand:hover::before {
-		width: 100%;
-		left: 0;
 	}
 </style>

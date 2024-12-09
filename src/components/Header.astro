@@ -1,0 +1,149 @@
+<header>
+	<nav
+		class="bg-gradient-to-r from-[#F9F5F6] via-[#F8E8EE] to-[#FDD8DF] py-2 px-4 lg:px-8 shadow-xl fixed w-full top-0 z-50"
+	>
+		<div class="flex items-center justify-between">
+			<!-- Logo/Brand -->
+			<div class="text-clamp font-serif text-[#242424] flex gap-2">
+				🌸 <span class="font-bold text-[#D9A0D2]">Blanca</span> Makeup
+			</div>
+
+			<!-- Hamburger Menu -->
+			<button
+				id="menu-button"
+				class="lg:hidden text-[#242424] focus:outline-none focus:ring-2 focus:ring-[#D9A0D2]"
+				aria-label="Toggle Menu"
+			>
+				<svg
+					class="w-6 h-6"
+					xmlns="http://www.w3.org/2000/svg"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor"
+				>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M4 6h16M4 12h16m-7 6h7"></path>
+				</svg>
+			</button>
+
+			<!-- Navigation Links -->
+			<ul
+				id="menu"
+				class="hidden lg:flex lg:static lg:flex-row flex-col lg:gap-x-8 space-y-4 lg:space-y-0 lg:text-lg font-semibold text-[#242424] absolute top-[100%] left-0 bg-[#F9F5F6] w-full shadow-lg lg:shadow-none lg:bg-transparent lg:justify-end"
+			>
+				<li class="">
+					<a
+						href="/"
+						class="block lg:inline-block hover:text-[#D9A0D2] underline-expand relative my-2"
+					>
+						Inicio
+					</a>
+				</li>
+				<li class="">
+					<a
+						href="/about"
+						class="block lg:inline-block hover:text-[#D9A0D2] underline-expand relative my-2"
+					>
+						Sobre mí
+					</a>
+				</li>
+				<li class="">
+					<a
+						href="/services"
+						class="block lg:inline-block hover:text-[#D9A0D2] underline-expand relative my-2"
+					>
+						Servicios
+					</a>
+				</li>
+				<li class="relative group">
+					<a
+						href="/work"
+						class="block lg:inline-block relative hover:text-[#D9A0D2] group-hover:bg-transparent group-hover:text-[#D9A0D2] transition underline-expand my-2 flex items-center justify-between"
+					>
+						Trabajos
+						<span
+							class="ml-1 absolute top-1/2 transform -translate-y-1/2 transition-transform group-hover:rotate-180 text-sm"
+						>
+							▼
+						</span>
+					</a>
+					<ul
+						class="hidden group-hover:block absolute top-full left-1/2 transform -translate-x-1/2 bg-[#F9F5F6] shadow-lg rounded-lg lg:text-base text-sm w-48"
+					>
+						<li>
+							<a
+								href="#filming"
+								class="block px-4 py-2 hover:bg-[#D9A0D2] hover:text-white rounded-t-lg text-center"
+							>
+								Rodajes
+							</a>
+						</li>
+						<li>
+							<a
+								href="advertesing"
+								class="block px-4 py-2 hover:bg-[#D9A0D2] hover:text-white text-center"
+							>
+								Publicidad
+							</a>
+						</li>
+						<li>
+							<a
+								href="#press"
+								class="block px-4 py-2 hover:bg-[#D9A0D2] hover:text-white text-center"
+							>
+								Prensa
+							</a>
+						</li>
+						<li>
+							<a
+								href="#editorials"
+								class="block px-4 py-2 hover:bg-[#D9A0D2] hover:text-white text-center"
+							>
+								Editoriales
+							</a>
+						</li>
+						<li>
+							<a
+								href="#gandb"
+								class="block px-4 py-2 hover:bg-[#D9A0D2] hover:text-white rounded-b-lg text-center"
+							>
+								Invitadas y novias
+							</a>
+						</li>
+					</ul>
+				</li>
+				<li class="">
+					<a
+						href="/contact"
+						class="block lg:inline-block hover:text-[#D9A0D2] underline-expand relative my-2"
+					>
+						Contacto
+					</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+</header>
+
+<style>
+	.underline-expand::before {
+		content: "";
+		position: absolute;
+		left: 50%;
+		bottom: 0;
+		width: 0;
+		height: 2px;
+		background-color: #d9a0d2; /* Color de la subrayado */
+		transition:
+			width 0.3s ease,
+			left 0.3s ease;
+	}
+
+	.underline-expand:hover::before {
+		width: 100%;
+		left: 0;
+	}
+</style>
