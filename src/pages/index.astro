@@ -1,162 +1,71 @@
----
-import Layout from "../layouts/Layout.astro";
-import Title from "../components/HeaderTitle.astro";
-import Section from "../components/Section.astro";
-import SectionTitle from "../components/SectionTitle.astro";
-import SectionItems from "../components/SectionItems.astro";
-import { Icon } from "astro-icon/components";
-import { Image } from "astro:assets";
-import img1 from "../../public/images/champloo.jpg";
----
-
-<script is:inline>
-	function openModal(src) {
-		const modal = document.getElementById("imageModal");
-		const modalImage = document.getElementById("modalImage");
-
-		modalImage.src = src;
-		modal.classList.remove("hidden");
-	}
-
-	function closeModal() {
-		const modal = document.getElementById("imageModal");
-		modal.classList.add("hidden");
-	}
-</script>
-
-<Layout>
-	<div class="relative h-[20vh] lg:h-[30vh] mb-8 mt-20 md:mt-28">
-		<!-- Video como fondo -->
-		<video
-			class="h-[20vh] lg:h-[30vh] w-full object-cover rounded-md filter brightness-90"
-			autoplay
-			muted
-			loop
-		>
-			<source src="/media/video.mp4" type="video/mp4" />
-			Tu navegador no soporta videos HTML5.
-		</video>
-
-		<!-- Contenido encima del video -->
-		<div class="absolute top-0 flex justify-center flex-col w-full h-full">
-			<Title title="Blanca Miguel" class="text-clamp" />
-			<div
-				class="flex flex-col items-center lg:flex-row lg:justify-center lg:gap-12"
-			>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>Blanca Miguel</title>
+	</head>
+	<body
+		class="bg-gradient-to-br from-gray-800 via-gray-900 to-black text-white h-screen flex items-center justify-center"
+	>
+		<div class="text-center">
+			<h1 class="text-4xl md:text-6xl font-bold mb-4">
+				Estamos de mantenimiento
+			</h1>
+			<p class="text-lg md:text-xl mb-6">
+				Si quieres contactar conmigo puedes hacerlo a través de:
+			</p>
+			<div class="flex items-end justify-center space-x-4">
+				<a
+					href="https://www.instagram.com/blancamiguel.makeup"
+					target="_blank"
+					class="text-pink-500 hover:text-pink-400 font-semibold text-lg md:text-5xl"
+				>
+					@blancamiguel.makeup
+				</a>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="2.5rem"
+					height="2.5rem"
+					viewBox="0 0 102 102"
+					id="instagram"
+				>
+					<defs>
+						<radialGradient
+							id="a"
+							cx="6.601"
+							cy="99.766"
+							r="129.502"
+							gradientUnits="userSpaceOnUse"
+						>
+							<stop offset=".09" stop-color="#fa8f21"></stop>
+							<stop offset=".78" stop-color="#d82d7e"></stop>
+						</radialGradient>
+						<radialGradient
+							id="b"
+							cx="70.652"
+							cy="96.49"
+							r="113.963"
+							gradientUnits="userSpaceOnUse"
+						>
+							<stop offset=".64" stop-color="#8c3aaa" stop-opacity="0"></stop>
+							<stop offset="1" stop-color="#8c3aaa"></stop>
+						</radialGradient>
+					</defs>
+					<path
+						fill="url(#a)"
+						d="M25.865,101.639A34.341,34.341,0,0,1,14.312,99.5a19.329,19.329,0,0,1-7.154-4.653A19.181,19.181,0,0,1,2.5,87.694,34.341,34.341,0,0,1,.364,76.142C.061,69.584,0,67.617,0,51s.067-18.577.361-25.14A34.534,34.534,0,0,1,2.5,14.312,19.4,19.4,0,0,1,7.154,7.154,19.206,19.206,0,0,1,14.309,2.5,34.341,34.341,0,0,1,25.862.361C32.422.061,34.392,0,51,0s18.577.067,25.14.361A34.534,34.534,0,0,1,87.691,2.5a19.254,19.254,0,0,1,7.154,4.653A19.267,19.267,0,0,1,99.5,14.309a34.341,34.341,0,0,1,2.14,11.553c.3,6.563.361,8.528.361,25.14s-.061,18.577-.361,25.14A34.5,34.5,0,0,1,99.5,87.694,20.6,20.6,0,0,1,87.691,99.5a34.342,34.342,0,0,1-11.553,2.14c-6.557.3-8.528.361-25.14.361s-18.577-.058-25.134-.361"
+					></path>
+					<path
+						fill="url(#b)"
+						d="M25.865,101.639A34.341,34.341,0,0,1,14.312,99.5a19.329,19.329,0,0,1-7.154-4.653A19.181,19.181,0,0,1,2.5,87.694,34.341,34.341,0,0,1,.364,76.142C.061,69.584,0,67.617,0,51s.067-18.577.361-25.14A34.534,34.534,0,0,1,2.5,14.312,19.4,19.4,0,0,1,7.154,7.154,19.206,19.206,0,0,1,14.309,2.5,34.341,34.341,0,0,1,25.862.361C32.422.061,34.392,0,51,0s18.577.067,25.14.361A34.534,34.534,0,0,1,87.691,2.5a19.254,19.254,0,0,1,7.154,4.653A19.267,19.267,0,0,1,99.5,14.309a34.341,34.341,0,0,1,2.14,11.553c.3,6.563.361,8.528.361,25.14s-.061,18.577-.361,25.14A34.5,34.5,0,0,1,99.5,87.694,20.6,20.6,0,0,1,87.691,99.5a34.342,34.342,0,0,1-11.553,2.14c-6.557.3-8.528.361-25.14.361s-18.577-.058-25.134-.361"
+					></path>
+					<path
+						fill="#fff"
+						d="M461.114,477.413a12.631,12.631,0,1,1,12.629,12.632,12.631,12.631,0,0,1-12.629-12.632m-6.829,0a19.458,19.458,0,1,0,19.458-19.458,19.457,19.457,0,0,0-19.458,19.458m35.139-20.229a4.547,4.547,0,1,0,4.549-4.545h0a4.549,4.549,0,0,0-4.547,4.545m-30.99,51.074a20.943,20.943,0,0,1-7.037-1.3,12.547,12.547,0,0,1-7.193-7.19,20.923,20.923,0,0,1-1.3-7.037c-.184-3.994-.22-5.194-.22-15.313s.04-11.316.22-15.314a21.082,21.082,0,0,1,1.3-7.037,12.54,12.54,0,0,1,7.193-7.193,20.924,20.924,0,0,1,7.037-1.3c3.994-.184,5.194-.22,15.309-.22s11.316.039,15.314.221a21.082,21.082,0,0,1,7.037,1.3,12.541,12.541,0,0,1,7.193,7.193,20.926,20.926,0,0,1,1.3,7.037c.184,4,.22,5.194.22,15.314s-.037,11.316-.22,15.314a21.023,21.023,0,0,1-1.3,7.037,12.547,12.547,0,0,1-7.193,7.19,20.925,20.925,0,0,1-7.037,1.3c-3.994.184-5.194.22-15.314.22s-11.316-.037-15.309-.22m-.314-68.509a27.786,27.786,0,0,0-9.2,1.76,19.373,19.373,0,0,0-11.083,11.083,27.794,27.794,0,0,0-1.76,9.2c-.187,4.04-.229,5.332-.229,15.623s.043,11.582.229,15.623a27.793,27.793,0,0,0,1.76,9.2,19.374,19.374,0,0,0,11.083,11.083,27.813,27.813,0,0,0,9.2,1.76c4.042.184,5.332.229,15.623.229s11.582-.043,15.623-.229a27.8,27.8,0,0,0,9.2-1.76,19.374,19.374,0,0,0,11.083-11.083,27.716,27.716,0,0,0,1.76-9.2c.184-4.043.226-5.332.226-15.623s-.043-11.582-.226-15.623a27.786,27.786,0,0,0-1.76-9.2,19.379,19.379,0,0,0-11.08-11.083,27.748,27.748,0,0,0-9.2-1.76c-4.041-.185-5.332-.229-15.621-.229s-11.583.043-15.626.229"
+						transform="translate(-422.637 -426.196)"></path>
+				</svg>
 			</div>
 		</div>
-	</div>
-	<Section>
-		<SectionTitle title="PRENSA" />
-		<SectionItems styles="grid grid-cols-3 gap-2 rounded-md">
-			<img
-				class="rounded-md overflow-hidden cursor-pointer hover:inset-1 hover:outline hover:outline-4 hover:outline-black"
-				src="https://placecats.com/neo/400/200"
-				alt="Img 2"
-				onclick="openModal(this.src)"
-			/>
-			<img
-				class="rounded-md overflow-hidden cursor-pointer hover:inset-1 hover:outline hover:outline-4 hover:outline-black"
-				src="https://placecats.com/millie/400/200"
-				alt="Img 1"
-				onclick="openModal(this.src)"
-			/>
-			<img
-				class="rounded-md overflow-hidden cursor-pointer hover:inset-1 hover:outline hover:outline-4 hover:outline-black"
-				src="https://placecats.com/bella/400/200"
-				alt="Img 3"
-				onclick="openModal(this.src)"
-			/>
-			<img
-				class="rounded-md overflow-hidden cursor-pointer hover:inset-1 hover:outline hover:outline-4 hover:outline-black"
-				src="https://placecats.com/poppy/400/600"
-				alt="Img 4"
-				onclick="openModal(this.src)"
-			/>
-			<img
-				class="rounded-md overflow-hidden cursor-pointer hover:inset-1 hover:outline hover:outline-4 hover:outline-black"
-				src="https://placecats.com/louie/400/600"
-				alt="Img 5"
-				onclick="openModal(this.src)"
-			/>
-			<img
-				class="rounded-md overflow-hidden cursor-pointer hover:inset-1 hover:outline hover:outline-4 hover:outline-black"
-				src="https://placecats.com/millie_neo/400/600"
-				alt="Img 6"
-				onclick="openModal(this.src)"
-			/>
-		</SectionItems>
-	</Section>
-	<Section>
-		<SectionTitle title="ALFOMBRA" />
-		<SectionItems
-			styles="grid grid-cols-3 grid-rows-2 gap-2 rounded-md max-h-[600px]"
-		>
-			<Image
-				src={img1}
-				class="col-span-1 row-span-1 object-cover h-full w-full rounded-md cursor-pointer overflow-hidden hover:inset-1 hover:outline hover:outline-4 hover:outline-black"
-				alt="Img 1"
-				onclick="openModal(this.src)"
-			/>
-			<Image
-				src={img1}
-				class="col-span-2 row-span-1 object-cover h-full w-full rounded-md cursor-pointer overflow-hidden hover:inset-1 hover:outline hover:outline-4 hover:outline-black"
-				alt="Img 1"
-				onclick="openModal(this.src)"
-			/>
-			<Image
-				src={img1}
-				class="col-span-1 row-span-1 object-cover h-full w-full rounded-md cursor-pointer overflow-hidden hover:inset-1 hover:outline hover:outline-4 hover:outline-black"
-				alt="Img 1"
-				onclick="openModal(this.src)"
-			/>
-			<Image
-				src={img1}
-				class="col-span-2 row-span-1 object-cover h-full w-full rounded-md cursor-pointer overflow-hidden hover:inset-1 hover:outline hover:outline-4 hover:outline-black"
-				alt="Img 1"
-				onclick="openModal(this.src)"
-			/>
-		</SectionItems>
-	</Section>
-	<!-- <Section>
-		<SectionTitle title="EDITORIAL" />
-		<SectionItems>
-			<img src="https://placecats.com/400/600" alt="Img 1" />
-			<img src="https://placecats.com/neo/400/600" alt="Img 2" />
-			<img src="https://placecats.com/bella/400/600" alt="Img 3" />
-			<img src="https://placecats.com/400/600" alt="Img 1" />
-			<img src="https://placecats.com/neo/400/600" alt="Img 2" />
-			<img src="https://placecats.com/bella/400/600" alt="Img 3" />
-		</SectionItems>
-	</Section>
-	<Section>
-		<SectionTitle title="VIDEOCLIP" />
-		<SectionItems>
-			<img src="https://placecats.com/400/600" alt="Img 1" />
-			<img src="https://placecats.com/neo/400/600" alt="Img 2" />
-			<img src="https://placecats.com/bella/400/600" alt="Img 3" />
-			<img src="https://placecats.com/400/600" alt="Img 1" />
-			<img src="https://placecats.com/neo/400/600" alt="Img 2" />
-			<img src="https://placecats.com/bella/400/600" alt="Img 3" />
-		</SectionItems>
-	</Section> -->
-	<!-- Modal -->
-	<div
-		id="imageModal"
-		class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center hidden px-4"
-		onclick="closeModal()"
-	>
-		<img
-			id="modalImage"
-			class="max-w-full max-h-full rounded-lg"
-			alt="Expanded view"
-		/>
-	</div>
-</Layout>
-
-<style>
-	/* Opcional: Para evitar desplazamientos cuando el modal está abierto */
-	.hidden {
-		display: none;
-	}
-</style>
+	</body>
+</html>
