@@ -1,0 +1,96 @@
+---
+import { Image } from "astro:assets";
+import logo from "../assets/images/logo.png";
+---
+
+<div
+	class="py-4 flex items-center justify-between sticky top-0 bg-[#0f0f0f] z-50"
+>
+	<a
+		href="/"
+		class="flex-grow text-gray-800 dark:text-gray-200 text-xl font-semibold"
+	>
+		<Image src={logo} alt="Logo" class="w-[300px]" />
+	</a>
+
+	<nav class="flex-grow">
+		<ul class="flex space-x-6 items-center justify-end">
+			<li>
+				<a
+					href="/portfolio"
+					class="relative group text-gray-600 dark:text-gray-300 font-semibold"
+				>
+					Portfolio
+					<span
+						class="absolute left-1/2 -bottom-1 h-[2px] w-0 transition-all duration-300 group-hover:w-full group-hover:left-0"
+					></span>
+				</a>
+			</li>
+			<li>
+				<a
+					href="#"
+					class="relative group text-gray-600 dark:text-gray-300 font-semibold"
+				>
+					Servicios
+					<span
+						class="absolute left-1/2 -bottom-1 h-[2px] w-0 transition-all duration-300 group-hover:w-full group-hover:left-0"
+					></span>
+				</a>
+			</li>
+			<li>
+				<a
+					href="#"
+					class="relative group text-gray-600 dark:text-gray-300 font-semibold"
+				>
+					Tarjeta Regalo
+					<span
+						class="absolute left-1/2 -bottom-1 h-[2px] w-0 transition-all duration-300 group-hover:w-full group-hover:left-0"
+					></span>
+				</a>
+			</li>
+			<li>
+				<a
+					href="#"
+					class="relative group text-gray-600 dark:text-gray-300 font-semibold"
+				>
+					Contacto
+					<span
+						class="absolute left-1/2 -bottom-1 h-[2px] w-0 transition-all duration-300 group-hover:w-full group-hover:left-0"
+					></span>
+				</a>
+			</li>
+			<li>
+				<button
+					type="submit"
+					class="relative overflow-hidden rounded-md border border-transparent bg-white px-6 py-3 text-base font-medium text-black shadow-sm transition-colors duration-300 before:absolute before:inset-0 before:-translate-x-full before:transform before:bg-[linear-gradient(45deg,#a87f3e,#e9d7a2,#a87f3e)] before:transition-transform before:duration-300 before:ease-out hover:before:translate-x-0"
+				>
+					<span class="relative z-10 !text-stone-900">RESERVAR</span>
+				</button>
+			</li>
+		</ul>
+	</nav>
+</div>
+
+<style>
+	/* Definición del degradado dorado */
+	:root {
+		--dorado-degradado: linear-gradient(45deg, #a87f3e, #e9d7a2, #a87f3e);
+	}
+
+	/* Efecto al pasar el cursor */
+	.group:hover {
+		background: var(--dorado-degradado);
+		color: var(--dorado-degradado);
+		-webkit-background-clip: text; /* Recorta el fondo para que se ajuste al texto */
+		-webkit-text-fill-color: transparent; /* Hace el texto transparente */
+		background-clip: text;
+		text-fill-color: transparent;
+	}
+
+	/* Estilo para la línea inferior */
+	.group:hover .absolute {
+		background: var(
+			--dorado-degradado
+		); /* Aplica el degradado a la línea inferior */
+	}
+</style>

@@ -1,0 +1,95 @@
+---
+import { Image } from "astro:assets";
+const { title, description, imageUrl, contactLink, buttonText } = Astro.props;
+---
+
+<style is:global>
+	.particle {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 5px;
+		height: 5px;
+		background: #a87f3e;
+		border-radius: 50%;
+		opacity: 0;
+		transform: translate(-50%, -50%) scale(0);
+		animation: explode 0.8s ease-out forwards;
+	}
+
+	@keyframes explode {
+		0% {
+			transform: translate(-50%, -50%) scale(0);
+			opacity: 1;
+		}
+		100% {
+			transform: translate(-50%, -50%) scale(1) translate(var(--x), var(--y));
+			opacity: 0;
+		}
+	}
+</style>
+
+<script is:inline>
+	document.addEventListener("DOMContentLoaded", () => {
+		const buttons = document.querySelectorAll(".particulas-btn");
+		if (!buttons.length) return;
+
+		buttons.forEach((button) => {
+			button.addEventListener("mouseenter", () => {
+				setTimeout(() => {
+					createParticles(button, 20);
+				}, 300);
+			});
+		});
+
+		function createParticles(element, count) {
+			// (El resto de la función es el mismo)
+			for (let i = 0; i < count; i++) {
+				const particle = document.createElement("span");
+				particle.classList.add("particle");
+
+				const x = (Math.random() - 0.5) * 100;
+				const y = (Math.random() - 0.5) * 100;
+
+				particle.style.setProperty("--x", `${x}px`);
+				particle.style.setProperty("--y", `${y}px`);
+
+				element.appendChild(particle);
+
+				particle.addEventListener("animationend", () => {
+					particle.remove();
+				});
+			}
+		}
+	});
+</script>
+
+<div
+	class="relative max-w-sm overflow-hidden rounded-xl bg-violet-900 shadow-xl hover:shadow-2xl"
+>
+	<Image
+		src={imageUrl}
+		alt={title}
+		class="w-full h-96 object-cover object-top"
+	/>
+	<div class="p-6 h-64 flex flex-col justify-between">
+		<h3
+			class="font-serif text-3xl font-light tracking-wide text-white text-center"
+		>
+			{title}
+		</h3>
+		<p class="mt-2 text-sm text-gray-400">
+			{description}
+		</p>
+		<div class="mt-6">
+			<a href={contactLink} target="_blank" rel="noopener noreferrer">
+				<button
+					type="submit"
+					class="particulas-btn relative w-full overflow-hidden rounded-md border border-transparent bg-white px-6 py-3 text-base font-medium text-black shadow-sm transition-colors duration-300 before:absolute before:inset-0 before:-translate-x-full before:transform before:bg-[linear-gradient(45deg,#a87f3e,#e9d7a2,#a87f3e)] before:transition-transform before:duration-300 before:ease-out hover:before:translate-x-0"
+				>
+					<span class="relative z-10 !text-stone-900">{buttonText}</span>
+				</button>
+			</a>
+		</div>
+	</div>
+</div>

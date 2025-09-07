@@ -1,0 +1,230 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Main from "../components/Main.astro";
+
+const images = Array.from({ length: 12 }, (_, i) => ({
+	src: `https://picsum.photos/400/300?random=${i + 1}`,
+	alt: `Placeholder ${i + 1}`,
+}));
+---
+
+<style>
+	.gallery {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+		grid-auto-rows: 200px;
+		gap: 1rem;
+		padding: 1rem;
+
+		/* 👇 Esto arregla los huecos */
+		grid-auto-flow: dense;
+	}
+
+	.gallery-item {
+		position: relative;
+		overflow: hidden;
+		border-radius: 12px;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+		cursor: pointer;
+	}
+
+	.gallery-item img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transition: transform 0.3s ease-in-out;
+	}
+
+	.gallery-item img:hover {
+		transform: scale(1.1);
+	}
+
+	/* Clases para variar el tamaño */
+	.wide {
+		grid-column: span 2;
+	}
+	.tall {
+		grid-row: span 2;
+	}
+	.big {
+		grid-column: span 2;
+		grid-row: span 2;
+	}
+
+	/* Lightbox */
+	.lightbox {
+		position: fixed;
+		inset: 0;
+		background: rgba(0, 0, 0, 0.9);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		z-index: 1000;
+		visibility: hidden;
+		opacity: 0;
+		transition: opacity 0.3s ease;
+	}
+
+	.lightbox.active {
+		visibility: visible;
+		opacity: 1;
+	}
+
+	.lightbox img {
+		max-width: 95%; /* más ancho */
+		max-height: 90%; /* más alto */
+		border-radius: 12px;
+		box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+		transition: transform 0.3s ease;
+	}
+
+	.close,
+	.prev,
+	.next {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		font-size: 2rem;
+		color: white;
+		cursor: pointer;
+		padding: 0.5rem 1rem;
+		user-select: none;
+		background: rgba(0, 0, 0, 0.5);
+		border-radius: 8px;
+	}
+
+	.close {
+		top: 5%;
+		right: 5%;
+		transform: none;
+		font-size: 2.5rem;
+	}
+
+	.prev {
+		left: 5%;
+	}
+	.next {
+		right: 5%;
+	}
+
+	.lightbox.active img {
+		transform: scale(1.12); /* 👈 zoom final persistente */
+		animation: zoomIn 0.3s ease forwards;
+	}
+
+	@keyframes zoomIn {
+		from {
+			transform: scale(0.9); /* parte pequeño */
+			opacity: 0;
+		}
+		to {
+			transform: scale(3); /* 👈 termina igual que el estado final */
+			opacity: 1;
+		}
+	}
+</style>
+
+<Layout>
+	<Main>
+		<div class="gallery">
+			<div class="gallery-item wide" data-index="0">
+				<img src={images[0].src} alt={images[0].alt} />
+			</div>
+			<div class="gallery-item" data-index="1">
+				<img src={images[1].src} alt={images[1].alt} />
+			</div>
+			<div class="gallery-item tall" data-index="2">
+				<img src={images[2].src} alt={images[2].alt} />
+			</div>
+			<div class="gallery-item" data-index="3">
+				<img src={images[3].src} alt={images[3].alt} />
+			</div>
+			<div class="gallery-item big" data-index="4">
+				<img src={images[4].src} alt={images[4].alt} />
+			</div>
+			<div class="gallery-item" data-index="5">
+				<img src={images[5].src} alt={images[5].alt} />
+			</div>
+			<div class="gallery-item tall" data-index="6">
+				<img src={images[6].src} alt={images[6].alt} />
+			</div>
+			<div class="gallery-item" data-index="7">
+				<img src={images[7].src} alt={images[7].alt} />
+			</div>
+			<div class="gallery-item wide" data-index="8">
+				<img src={images[8].src} alt={images[8].alt} />
+			</div>
+			<div class="gallery-item" data-index="9">
+				<img src={images[9].src} alt={images[9].alt} />
+			</div>
+			<div class="gallery-item tall" data-index="10">
+				<img src={images[10].src} alt={images[10].alt} />
+			</div>
+			<div class="gallery-item" data-index="11">
+				<img src={images[11].src} alt={images[11].alt} />
+			</div>
+		</div>
+
+		<!-- Lightbox -->
+		<div class="lightbox" id="lightbox">
+			<span class="close" id="close">&times;</span>
+			<span class="prev" id="prev">&#10094;</span>
+			<img id="lightbox-img" src="" alt="Expanded image" />
+			<span class="next" id="next">&#10095;</span>
+		</div>
+	</Main>
+</Layout>
+
+<script is:inline>
+	const images = document.querySelectorAll(".gallery-item");
+	const lightbox = document.getElementById("lightbox");
+	const lightboxImg = document.getElementById("lightbox-img");
+	const closeBtn = document.getElementById("close");
+	const prevBtn = document.getElementById("prev");
+	const nextBtn = document.getElementById("next");
+
+	let currentIndex = 0;
+
+	function showImage(index) {
+		const img = images[index].querySelector("img");
+		lightboxImg.src = img.src;
+		currentIndex = index;
+		lightbox.classList.add("active");
+	}
+
+	images.forEach((item) => {
+		item.addEventListener("click", () => {
+			const index = parseInt(item.dataset.index, 10);
+			showImage(index);
+		});
+	});
+
+	closeBtn.addEventListener("click", () => {
+		lightbox.classList.remove("active");
+	});
+
+	prevBtn.addEventListener("click", () => {
+		currentIndex = (currentIndex - 1 + images.length) % images.length;
+		showImage(currentIndex);
+	});
+
+	nextBtn.addEventListener("click", () => {
+		currentIndex = (currentIndex + 1) % images.length;
+		showImage(currentIndex);
+	});
+
+	// Cerrar con fondo oscuro
+	lightbox.addEventListener("click", (e) => {
+		if (e.target === lightbox) {
+			lightbox.classList.remove("active");
+		}
+	});
+
+	// Navegación con teclado
+	document.addEventListener("keydown", (e) => {
+		if (!lightbox.classList.contains("active")) return;
+		if (e.key === "ArrowRight") nextBtn.click();
+		if (e.key === "ArrowLeft") prevBtn.click();
+		if (e.key === "Escape") closeBtn.click();
+	});
+</script>

@@ -1,141 +1,270 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Title from "../components/HeaderTitle.astro";
+import Main from "../components/Main.astro";
 import Section from "../components/Section.astro";
-import SectionTitle from "../components/SectionTitle.astro";
-import SectionItems from "../components/SectionItems.astro";
-import { Icon } from "astro-icon/components";
-import { Image } from "astro:assets";
-import img1 from "../../public/images/champloo.jpg";
+import Card from "../components/Card.astro";
+import Contact from "../components/Contact.astro";
+
+import makeUp01 from "../assets/images/makeup_01.jpg";
+import peinado01 from "../assets/images/peinado_01.webp";
 ---
 
-<script is:inline>
-	function openModal(src) {
-		const modal = document.getElementById("imageModal");
-		const modalImage = document.getElementById("modalImage");
-
-		modalImage.src = src;
-		modal.classList.remove("hidden");
-	}
-
-	function closeModal() {
-		const modal = document.getElementById("imageModal");
-		modal.classList.add("hidden");
-	}
-</script>
-
-<Layout>
-	<Section>
-		<SectionTitle title="PRENSA" />
-		<SectionItems styles="grid grid-cols-3 gap-2 rounded-md">
-			<img
-				class="rounded-md overflow-hidden cursor-pointer hover:inset-1 hover:outline hover:outline-4 hover:outline-black"
-				src="https://placecats.com/neo/400/200"
-				alt="Img 2"
-				onclick="openModal(this.src)"
-			/>
-			<img
-				class="rounded-md overflow-hidden cursor-pointer hover:inset-1 hover:outline hover:outline-4 hover:outline-black"
-				src="https://placecats.com/millie/400/200"
-				alt="Img 1"
-				onclick="openModal(this.src)"
-			/>
-			<img
-				class="rounded-md overflow-hidden cursor-pointer hover:inset-1 hover:outline hover:outline-4 hover:outline-black"
-				src="https://placecats.com/bella/400/200"
-				alt="Img 3"
-				onclick="openModal(this.src)"
-			/>
-			<img
-				class="rounded-md overflow-hidden cursor-pointer hover:inset-1 hover:outline hover:outline-4 hover:outline-black"
-				src="https://placecats.com/poppy/400/600"
-				alt="Img 4"
-				onclick="openModal(this.src)"
-			/>
-			<img
-				class="rounded-md overflow-hidden cursor-pointer hover:inset-1 hover:outline hover:outline-4 hover:outline-black"
-				src="https://placecats.com/louie/400/600"
-				alt="Img 5"
-				onclick="openModal(this.src)"
-			/>
-			<img
-				class="rounded-md overflow-hidden cursor-pointer hover:inset-1 hover:outline hover:outline-4 hover:outline-black"
-				src="https://placecats.com/millie_neo/400/600"
-				alt="Img 6"
-				onclick="openModal(this.src)"
-			/>
-		</SectionItems>
-	</Section>
-	<Section>
-		<SectionTitle title="ALFOMBRA" />
-		<SectionItems
-			styles="grid grid-cols-3 grid-rows-2 gap-2 rounded-md max-h-[600px]"
-		>
-			<Image
-				src={img1}
-				class="col-span-1 row-span-1 object-cover h-full w-full rounded-md cursor-pointer overflow-hidden hover:inset-1 hover:outline hover:outline-4 hover:outline-black"
-				alt="Img 1"
-				onclick="openModal(this.src)"
-			/>
-			<Image
-				src={img1}
-				class="col-span-2 row-span-1 object-cover h-full w-full rounded-md cursor-pointer overflow-hidden hover:inset-1 hover:outline hover:outline-4 hover:outline-black"
-				alt="Img 1"
-				onclick="openModal(this.src)"
-			/>
-			<Image
-				src={img1}
-				class="col-span-1 row-span-1 object-cover h-full w-full rounded-md cursor-pointer overflow-hidden hover:inset-1 hover:outline hover:outline-4 hover:outline-black"
-				alt="Img 1"
-				onclick="openModal(this.src)"
-			/>
-			<Image
-				src={img1}
-				class="col-span-2 row-span-1 object-cover h-full w-full rounded-md cursor-pointer overflow-hidden hover:inset-1 hover:outline hover:outline-4 hover:outline-black"
-				alt="Img 1"
-				onclick="openModal(this.src)"
-			/>
-		</SectionItems>
-	</Section>
-	<!-- <Section>
-		<SectionTitle title="EDITORIAL" />
-		<SectionItems>
-			<img src="https://placecats.com/400/600" alt="Img 1" />
-			<img src="https://placecats.com/neo/400/600" alt="Img 2" />
-			<img src="https://placecats.com/bella/400/600" alt="Img 3" />
-			<img src="https://placecats.com/400/600" alt="Img 1" />
-			<img src="https://placecats.com/neo/400/600" alt="Img 2" />
-			<img src="https://placecats.com/bella/400/600" alt="Img 3" />
-		</SectionItems>
-	</Section>
-	<Section>
-		<SectionTitle title="VIDEOCLIP" />
-		<SectionItems>
-			<img src="https://placecats.com/400/600" alt="Img 1" />
-			<img src="https://placecats.com/neo/400/600" alt="Img 2" />
-			<img src="https://placecats.com/bella/400/600" alt="Img 3" />
-			<img src="https://placecats.com/400/600" alt="Img 1" />
-			<img src="https://placecats.com/neo/400/600" alt="Img 2" />
-			<img src="https://placecats.com/bella/400/600" alt="Img 3" />
-		</SectionItems>
-	</Section> -->
-	<!-- Modal -->
-	<div
-		id="imageModal"
-		class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center hidden px-4"
-		onclick="closeModal()"
-	>
-		<img
-			id="modalImage"
-			class="max-w-full max-h-full rounded-lg"
-			alt="Expanded view"
-		/>
-	</div>
-</Layout>
-
 <style>
-	/* Opcional: Para evitar desplazamientos cuando el modal está abierto */
-	.hidden {
-		display: none;
+	/* Sección de Servicios */
+	.servicios {
+		padding: 60px 20px;
+		background-color: #f9f9f9;
+		font-family: Arial, sans-serif;
+		text-align: center;
+	}
+
+	.titulo-seccion {
+		font-size: 2.5rem;
+		color: #333;
+		margin-bottom: 40px;
+	}
+
+	.contenedor-tarjetas {
+		display: flex;
+		flex-direction: column;
+		gap: 30px;
+		justify-content: center;
+		align-items: stretch;
+	}
+
+	@media (min-width: 768px) {
+		.contenedor-tarjetas {
+			flex-direction: row;
+			gap: 50px;
+		}
+	}
+
+	/* Tarjeta individual */
+	.tarjeta {
+		background-color: #fff;
+		border-radius: 15px;
+		box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+		max-width: 400px;
+		overflow: hidden;
+		transition: transform 0.3s ease-in-out;
+	}
+
+	.tarjeta:hover {
+		/* transform: translateY(-10px); */
+	}
+
+	.tarjeta-imagen {
+		width: 100%;
+		height: 300px;
+		object-fit: cover;
+	}
+
+	.tarjeta-contenido {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+		gap: 0.25rem;
+	}
+
+	.tarjeta-contenido h3 {
+		font-size: 1.8rem;
+		color: #333;
+		/* margin-bottom: 10px; */
+	}
+
+	.tarjeta-contenido p {
+		font-size: 1rem;
+		color: #666;
+		line-height: 1.6;
+		margin-bottom: 1rem;
+	}
+
+	.boton-reservar {
+		/* Estilo base */
+		display: inline-block;
+		padding: 15px 35px;
+		border-radius: 50px;
+		background-color: #0f0f0f;
+		color: #fff;
+		text-decoration: none;
+		font-weight: bold;
+		border: 2px solid #a87f3e; /* Borde dorado */
+		position: relative;
+		overflow: hidden;
+		transition: all 0.4s ease-in-out;
+	}
+
+	.boton-reservar span {
+		position: relative;
+		z-index: 2;
+	}
+
+	/* Efecto de brillo al pasar el cursor */
+	.boton-reservar::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(
+			45deg,
+			#a87f3e,
+			#e9d7a2,
+			#a87f3e
+		); /* Degradado de oro */
+		transform: translateX(-100%);
+		transition: transform 0.4s ease-in-out;
+		z-index: 1;
+	}
+
+	.boton-reservar:hover::before {
+		transform: translateX(0);
+	}
+
+	.boton-reservar:hover {
+		color: #0f0f0f;
+		border-color: #a87f3e;
+	}
+
+	.boton-reservar:hover span {
+		color: #0f0f0f;
 	}
 </style>
+
+<!-- <script is:inline>
+	const cards = document.querySelectorAll(".card");
+
+	// Add "is-active" class to all cards initially
+	cards.forEach((card) => card.classList.add("is-active"));
+
+	// Use event delegation for better performance
+	document.addEventListener(
+		"mouseenter",
+		(event) => {
+			const card = event.target.closest(".card");
+			if (card) {
+				cards.forEach((c) => c.classList.remove("is-active"));
+				card.classList.add("is-active");
+			}
+		},
+		true,
+	);
+
+	document.addEventListener(
+		"mouseleave",
+		(event) => {
+			const card = event.target.closest(".card");
+			if (card) {
+				cards.forEach((c) => c.classList.add("is-active"));
+			}
+		},
+		true,
+	);
+</script> -->
+
+<Layout>
+	<Main>
+		<!-- Portfolio -->
+		<!-- <Section title="Portfolio">
+			<div class="container">
+				<div class="card">
+					<div class="card__inner">
+						<picture>
+							<img src="https://picsum.photos/id/41/800/800" alt="" />
+						</picture>
+					</div>
+				</div>
+				<div class="card">
+					<div class="card__inner">
+						<picture>
+							<img src="https://picsum.photos/id/42/800/800" alt="" />
+						</picture>
+					</div>
+				</div>
+				<div class="card">
+					<div class="card__inner">
+						<picture>
+							<img src="https://picsum.photos/id/33/800/800" alt="" />
+						</picture>
+					</div>
+				</div>
+				<div class="card">
+					<div class="card__inner">
+						<picture>
+							<img src="https://picsum.photos/id/24/800/800" alt="" />
+						</picture>
+					</div>
+				</div>
+				<div class="card">
+					<div class="card__inner">
+						<picture>
+							<img src="https://picsum.photos/id/25/800/800" alt="" />
+						</picture>
+					</div>
+				</div>
+				<div class="card">
+					<div class="card__inner">
+						<picture>
+							<img src="https://picsum.photos/id/26/800/800" alt="" />
+						</picture>
+					</div>
+				</div>
+				<div class="card">
+					<div class="card__inner">
+						<picture>
+							<img src="https://picsum.photos/id/27/800/800" alt="" />
+						</picture>
+					</div>
+				</div>
+				<div class="card">
+					<div class="card__inner">
+						<picture>
+							<img src="https://picsum.photos/id/28/800/800" alt="" />
+						</picture>
+					</div>
+				</div>
+				<div class="card">
+					<div class="card__inner">
+						<picture>
+							<img src="https://picsum.photos/id/29/800/800" alt="" />
+						</picture>
+					</div>
+				</div>
+				<div class="card">
+					<div class="card__inner">
+						<picture>
+							<img src="https://picsum.photos/id/22/800/800" alt="" />
+						</picture>
+					</div>
+				</div>
+			</div>
+		</Section> -->
+
+		<!-- Services -->
+		<Section title="SERVICIOS">
+			<div class="flex flex-col md:flex-row gap-8 justify-center items-stretch">
+				<Card
+					title="Maquillaje Profesional"
+					description="Resalta tu belleza para cualquier evento. Desde looks naturales hasta estilos más dramáticos y artísticos, te garantizamos un acabado perfecto y duradero."
+					imageUrl={makeUp01}
+					contactLink="#contacto-maquillaje"
+					buttonText="RESERVAR MAQUILLAJE"
+				/>
+				<Card
+					title="Peinados de Ensueño"
+					description="Peinados personalizados para cada ocasión, desde recogidos elegantes hasta ondas naturales."
+					imageUrl={peinado01}
+					contactLink="#contacto-peinado"
+					buttonText="RESERVAR PEINADO"
+				/>
+			</div>
+		</Section>
+
+		<!-- Contact Form -->
+		<Section title="CONTACTO">
+			<Contact />
+		</Section>
+	</Main>
+</Layout>

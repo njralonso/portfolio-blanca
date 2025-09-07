@@ -1,0 +1,14 @@
+---
+const { title } = Astro.props;
+import { Image } from "astro:assets";
+import GalleryImageItem from "./GalleryImageItem.astro";
+import img0 from "../../images/gallery-1/img.jpg";
+import img1 from "../../images/gallery-1/img1.jpg";
+import img2 from "../../images/gallery-1/img2.jpg";
+import img3 from "../../images/gallery-1/img3.jpg";
+---
+
+<div>
+	<h2>{title}</h2>
+	<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-4"></div>
+</div>

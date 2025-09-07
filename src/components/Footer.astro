@@ -1,0 +1,23 @@
+---
+import { Image } from "astro:assets";
+import instagramIcon from "../assets/icons/instagram.svg";
+---
+
+<footer>
+	<div class="mb-8 text-center text-4xl">
+		<p>
+			Encuéntrame también en <a
+				href="https://www.instagram.com/blancamiguel.makeup/"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="mx-auto"
+			>
+				<Image
+					src={instagramIcon}
+					alt="Instagram"
+					class="w-6 h-6 inline-block"
+				/>
+			</a>
+		</p>
+	</div>
+</footer>

@@ -1,7 +1,18 @@
 ---
-
+const { title } = Astro.props;
 ---
 
-<div class="my-4 mx-auto rounded-md">
-	<slot />
+<div class="component-section flex flex-col gap-y-4 my-4">
+	<h2
+		class="text-white text-4xl lg:text-5xl font-extralight tracking-wide py-4 uppercase text-center"
+	>
+		{title}
+	</h2>
+	<div>
+		<slot />
+	</div>
+</div>
+<div
+	class="w-full h-px my-12 bg-gradient-to-r from-transparent via-gray-400 to-transparent"
+>
 </div>
