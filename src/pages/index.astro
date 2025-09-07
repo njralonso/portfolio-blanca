@@ -2,8 +2,9 @@
 import Layout from "../layouts/Layout.astro";
 import Main from "../components/Main.astro";
 import Section from "../components/Section.astro";
-import Card from "../components/Card.astro";
+import CardServices from "../components/CardServices.astro";
 import Contact from "../components/Contact.astro";
+import CardJobs from "../components/CardJobs.astro";
 
 import makeUp01 from "../assets/images/makeup_01.jpg";
 import peinado01 from "../assets/images/peinado_01.webp";
@@ -243,16 +244,25 @@ import peinado01 from "../assets/images/peinado_01.webp";
 		</Section> -->
 
 		<!-- Services -->
+		<Section title="Mis Trabajos">
+			<div class="flex flex-col md:flex-row gap-8 justify-center items-stretch">
+				<CardJobs text="Invitadas" />
+				<CardJobs text="Novias" />
+				<CardJobs text="Fiesta" />
+			</div>
+		</Section>
+
+		<!-- Services -->
 		<Section title="SERVICIOS">
 			<div class="flex flex-col md:flex-row gap-8 justify-center items-stretch">
-				<Card
+				<CardServices
 					title="Maquillaje Profesional"
 					description="Resalta tu belleza para cualquier evento. Desde looks naturales hasta estilos más dramáticos y artísticos, te garantizamos un acabado perfecto y duradero."
 					imageUrl={makeUp01}
 					contactLink="#contacto-maquillaje"
 					buttonText="RESERVAR MAQUILLAJE"
 				/>
-				<Card
+				<CardServices
 					title="Peinados de Ensueño"
 					description="Peinados personalizados para cada ocasión, desde recogidos elegantes hasta ondas naturales."
 					imageUrl={peinado01}
