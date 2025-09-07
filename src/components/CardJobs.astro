@@ -2,29 +2,22 @@
 const { text } = Astro.props;
 ---
 
-<div class="relative rounded-xl bg-violet-900 shadow-xl hover:shadow-2xl">
-	<div class="grid gap-4">
+<div
+	class="group relative bg-[url('../assets/images/makeup_01.jpg')] object-cover rounded-xl shadow-xl hover:shadow-2xl w-96 h-48 border-2 border-white transition-all duration-300 overflow-hidden"
+>
+	<a href="/contacto" class="boton-reservar text-white text-base">
 		<div
-			class="px-20 py-10 cursor-pointer hover:scale-130 hover:underline transition-all duration-300"
+			class="absolute bottom-0 left-0 right-0 py-2 flex justify-center items-center bg-gray-900/50 backdrop-blur-sm rounded-b-xl transition-all duration-300 group-hover:inset-0 group-hover:rounded-xl"
 		>
-			<h3
-				class="font-serif text-3xl font-light tracking-wide text-white text-center"
+			<span class="group-hover:text-4xl transition-all duration-300"
+				>{text}</span
 			>
-				{text}
-			</h3>
 		</div>
-	</div>
-	<!-- <p class="mt-2 text-sm text-gray-400">
-			{description}
-		</p>
-		<div class="mt-6">
-			<a href={contactLink} target="_blank" rel="noopener noreferrer">
-				<button
-					type="submit"
-					class="particulas-btn relative w-full overflow-hidden rounded-md border border-transparent bg-white px-6 py-3 text-base font-medium text-black shadow-sm transition-colors duration-300 before:absolute before:inset-0 before:-translate-x-full before:transform before:bg-[linear-gradient(45deg,#a87f3e,#e9d7a2,#a87f3e)] before:transition-transform before:duration-300 before:ease-out hover:before:translate-x-0"
-				>
-					<span class="relative z-10 !text-stone-900">{buttonText}</span>
-				</button>
-			</a>
-		</div> -->
+		<div class="grid gap-4">
+			<div
+				class="px-20 py-10 cursor-pointer hover:scale-130 hover:underline transition-all duration-300"
+			>
+			</div>
+		</div>
+	</a>
 </div>
