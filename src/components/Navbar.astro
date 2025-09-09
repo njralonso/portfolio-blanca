@@ -1,20 +1,20 @@
----
-import { Image } from "astro:assets";
-import logo from "../assets/images/logo.png";
----
-
 <div
-	class="py-4 flex items-center justify-between sticky top-0 bg-[#0f0f0f] z-50"
+	class="py-4 flex justify-between sticky top-0 bg-[#0f0f0f] z-50 items-center"
 >
-	<a
-		href="/"
-		class="flex-grow text-gray-800 dark:text-gray-200 text-xl font-semibold"
-	>
-		<Image src={logo} alt="Logo" class="w-[300px]" />
-	</a>
+	<div class="relative">
+		<a
+			href="/"
+			class="flex-grow text-gray-800 dark:text-gray-200 text-xl font-semibold"
+		>
+			<p class="underline text-3xl">Blanca Miguel</p>
+			<p class="absolute -bottom-6 right-0 text-base font-thin">
+				Maqullaje & Peluquería
+			</p>
+		</a>
+	</div>
 
-	<nav class="flex-grow">
-		<ul class="flex space-x-6 items-center justify-end">
+	<nav class="">
+		<ul class="flex space-x-6 items-center">
 			<li>
 				<a
 					href="/portfolio"

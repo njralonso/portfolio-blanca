@@ -5,9 +5,10 @@ import Section from "../components/Section.astro";
 import CardServices from "../components/CardServices.astro";
 import Contact from "../components/Contact.astro";
 import CardJobs from "../components/CardJobs.astro";
-
 import makeUp01 from "../assets/images/makeup_01.jpg";
 import peinado01 from "../assets/images/peinado_01.webp";
+import { Image } from "astro:assets";
+import about from "../assets/images/about.jpg";
 ---
 
 <style>
@@ -243,11 +244,38 @@ import peinado01 from "../assets/images/peinado_01.webp";
 			</div>
 		</Section> -->
 
+		<!-- Sobre mí -->
+		<Section title="Sobre mí">
+			<div class="flex flex-row">
+				<div class="min-w-1/4 h-96 overflow-hidden rounded-lg">
+					<Image src={about} alt="Sobre mí" />
+				</div>
+				<div class="px-4">
+					<p class="mt-2 text-2xl">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit.
+						Voluptatibus, officia magnam excepturi ut fugit libero eius eaque ab
+						error itaque, repellat, dolor ipsa at obcaecati veniam perspiciatis
+						temporibus minima quasi? Lorem ipsum dolor, sit amet consectetur
+						adipisicing elit. Mollitia quisquam minus qui quod, harum aperiam
+						nemo accusamus rem aliquam cumque dolores labore odio. Doloribus,
+						aperiam hic culpa molestias velit id. Lorem ipsum dolor sit amet
+						consectetur adipisicing elit. Ea, impedit ducimus doloremque at
+						adipisci molestiae aperiam consequuntur delectus in nulla nostrum
+						dicta quos mollitia molestias maxime voluptate explicabo asperiores
+						ipsa.
+					</p>
+				</div>
+			</div>
+		</Section>
+
 		<!-- Jobs -->
 		<Section title="Mis Trabajos">
-			<div class="flex flex-col md:flex-row gap-8 justify-center items-stretch">
-				<CardJobs text="Invitadas" image="makeup_01" />
-				<CardJobs text="Editorial" image="" />
+			<div class="flex flex-wrap justify-center gap-8">
+				<CardJobs text="Novias" />
+				<CardJobs text="Editorial" />
+				<CardJobs text="Moda" />
+				<CardJobs text="Invitadas" />
+				<CardJobs text="Videoclips" />
 			</div>
 		</Section>
 
