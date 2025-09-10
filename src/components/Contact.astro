@@ -22,14 +22,14 @@
 			</div>
 
 			<div>
-				<label for="last-name" class="block text-sm font-medium">
+				<label for="surname" class="block text-sm font-medium">
 					Apellido
 				</label>
 				<div class="mt-1">
 					<input
 						type="text"
-						name="last-name"
-						id="last-name"
+						name="surname"
+						id="surname"
 						autocomplete="family-name"
 						class="block w-full rounded-md border border-gray-600 bg-transparent px-4 py-2 focus:border-white focus:outline-none focus:ring-0 sm:text-sm"
 						placeholder="Tú apellido"
@@ -65,28 +65,15 @@
 				/>
 			</div>
 		</div>
-		<div>
-			<label for="date" class="block text-sm font-medium"> Fecha </label>
-			<div class="mt-1">
-				<input
-					type="date"
-					name="date"
-					id="phone"
-					autocomplete="tel"
-					class="block w-full rounded-md border border-gray-600 bg-transparent px-4 py-2 focus:border-white focus:outline-none focus:ring-0 sm:text-sm"
-					placeholder="Tú teléfono"
-				/>
-			</div>
-		</div>
 
 		<div>
-			<label for="description" class="block text-sm font-medium">
+			<label for="message" class="block text-sm font-medium">
 				Descripción
 			</label>
 			<div class="mt-1">
 				<textarea
-					id="description"
-					name="description"
+					id="message"
+					name="message"
 					rows="4"
 					class="block w-full rounded-md border border-gray-600 bg-transparent px-4 py-2 focus:border-white focus:outline-none focus:ring-0 sm:text-sm"
 					placeholder="Escribe aquí los detalles de tu consulta..."></textarea>
@@ -95,7 +82,6 @@
 
 		<div class="pt-6">
 			<button
-				type="submit"
 				class="relative w-full overflow-hidden rounded-md border border-transparent bg-white px-6 py-3 text-base font-medium text-black shadow-sm transition-colors duration-300 before:absolute before:inset-0 before:-translate-x-full before:transform before:bg-[linear-gradient(45deg,#a87f3e,#e9d7a2,#a87f3e)] before:transition-transform before:duration-200 before:ease-out hover:before:translate-x-0"
 			>
 				<span class="relative z-10 !text-stone-900">Enviar</span>
@@ -103,3 +89,20 @@
 		</div>
 	</form>
 </div>
+
+<script>
+	import { actions } from "astro:actions";
+
+	const form = document.querySelector("form");
+	form?.addEventListener("submit", async (event) => {
+		event.preventDefault();
+		const formData = new FormData(form);
+		const { error } = await actions.sendContact(formData);
+		if (error) {
+			alert(
+				"Hubo un error al enviar el formulario. Por favor, inténtalo de nuevo.",
+			);
+			return;
+		}
+	});
+</script>

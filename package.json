@@ -1,18 +1,19 @@
 {
-  "name": "",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "@astrojs/tailwind": "^6.0.2",
-    "@tailwindcss/vite": "^4.1.13",
-    "astro": "^5.0.3",
-    "astro-icon": "^1.1.4",
-    "tailwindcss": "^4.1.13"
-  }
+	"name": "",
+	"type": "module",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro"
+	},
+	"dependencies": {
+		"@astrojs/tailwind": "6.0.2",
+		"@supabase/supabase-js": "^2.57.4",
+		"@tailwindcss/vite": "4.1.13",
+		"astro": "^5.13.7",
+		"astro-icon": "1.1.4",
+		"tailwindcss": "4.1.13"
+	}
 }
