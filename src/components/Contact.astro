@@ -97,8 +97,9 @@
 	form?.addEventListener("submit", async (event) => {
 		event.preventDefault();
 		const formData = new FormData(form);
-		const { error } = await actions.sendContact(formData);
-		if (error) {
+		const { error: contactError } = await actions.sendContact(formData);
+		const { error: emailError } = await actions.sendEmail(formData);
+		if (contactError || emailError) {
 			alert(
 				"Hubo un error al enviar el formulario. Por favor, inténtalo de nuevo.",
 			);
