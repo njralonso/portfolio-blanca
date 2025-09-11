@@ -2,6 +2,7 @@ import { defineAction } from "astro:actions";
 import { z } from "astro:schema";
 import { ContactRepository } from "../../infrastructure/repositories/ContactRepository.js";
 import { SendContactMessage } from "../../domain/usecases/SendContactMessage.js";
+import { emailController } from "../../interfaces/controllers/emailController.js";
 
 export const server = {
 	sendContact: defineAction({
@@ -32,4 +33,23 @@ export const server = {
 			}
 		}
 	}),
-};
+	sendEmail: defineAction({
+		accept: 'form',
+		schema: z.object({
+			name: z.string().min(1, "Name is required"),
+			email: z.string().min(1, "Email is required").email("Invalid email format"),
+			message: z.string().min(1, "Message is required"),
+		}),
+		async handler(data) {
+			try {
+				const response = await emailController(data);
+				if (!response.ok) {
+					return { error: `Error en la API: ${response.statusText}` };
+				}
+			} catch (err) {
+				console.error(err);
+				return { error: 'Error al enviar los datos' };
+			}
+		}
+	}),
+}
