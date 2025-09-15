@@ -7,8 +7,8 @@ import Contact from "../components/Contact.astro";
 import CardJobs from "../components/CardJobs.astro";
 import makeUp01 from "../assets/images/makeup_01.jpg";
 import peinado01 from "../assets/images/peinado_01.webp";
-import { Image } from "astro:assets";
-import about from "../assets/images/about.jpg";
+import {Image} from "astro:assets";
+import about from "../assets/images/portada.jpeg"
 ---
 
 <style>
@@ -246,42 +246,34 @@ import about from "../assets/images/about.jpg";
 
 		<!-- Sobre mí -->
 		<Section title="Sobre mí">
-			<div class="flex flex-row">
-				<div class="min-w-1/4 h-96 overflow-hidden rounded-lg">
-					<Image src={about} alt="Sobre mí" />
+			<div class="flex flex-row text-white items-center">
+				<div class="min-w-1/3 h-full overflow-hidden rounded-lg">
+					<Image src={about} alt="Sobre mí" class=""/>
 				</div>
 				<div class="px-4">
 					<p class="mt-2 text-2xl">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit.
-						Voluptatibus, officia magnam excepturi ut fugit libero eius eaque ab
-						error itaque, repellat, dolor ipsa at obcaecati veniam perspiciatis
-						temporibus minima quasi? Lorem ipsum dolor, sit amet consectetur
-						adipisicing elit. Mollitia quisquam minus qui quod, harum aperiam
-						nemo accusamus rem aliquam cumque dolores labore odio. Doloribus,
-						aperiam hic culpa molestias velit id. Lorem ipsum dolor sit amet
-						consectetur adipisicing elit. Ea, impedit ducimus doloremque at
-						adipisci molestiae aperiam consequuntur delectus in nulla nostrum
-						dicta quos mollitia molestias maxime voluptate explicabo asperiores
-						ipsa.
+Con una carrera de más de 7 años en maquillaje y peluquería, estoy orgullosa de poder contar con experiencia en todos los campos del sector, desde rodajes publicitarios o alfombras de premios hasta la Fashion Week de Madrid. Sin embargo fue el sector nupcial el que terminó por cautivarme por completo. Desde las novias más sencillas a las más atrevidas, vivir con ellas ese día tan especial a lo largo de los meses es lo que realmente terminó de enamorarme de este trabajo tan artístico. Te enseño a continuación una pequeña muestra de mi trabajo.
 					</p>
 				</div>
 			</div>
 		</Section>
 
 		<!-- Jobs -->
-		<Section title="Mis Trabajos">
-			<div class="flex flex-wrap justify-center gap-8">
-				<CardJobs text="Novias" />
-				<CardJobs text="Editorial" />
-				<CardJobs text="Moda" />
-				<CardJobs text="Invitadas" />
-				<CardJobs text="Videoclips" />
+		<Section title="Mis Trabajos" id="portfolio">
+			<div
+				class="flex items-centerflex-row flex-wrap justify-center gap-8 w-full"
+			>
+				<CardJobs text="Novias" image="makeup_01.jpg"/>
+				<CardJobs text="Editorial" image="peinado_01.webp"/>
+				<CardJobs text="Moda" image="peinado_01.webp"/>
+				<CardJobs text="Invitadas" image="peinado_01.webp"/>
+				<CardJobs text="Videoclips" image="peinado_01.webp"/>
 			</div>
 		</Section>
 
 		<!-- Services -->
-		<Section title="SERVICIOS">
-			<div class="flex flex-col md:flex-row gap-8 justify-center items-stretch">
+		<Section title="SERVICIOS" id="services">
+			<div class="flex gap-8 justify-center items-stretch w-full">
 				<CardServices
 					title="Maquillaje Profesional"
 					description="Resalta tu belleza para cualquier evento. Desde looks naturales hasta estilos más dramáticos y artísticos, te garantizamos un acabado perfecto y duradero."
@@ -300,7 +292,7 @@ import about from "../assets/images/about.jpg";
 		</Section>
 
 		<!-- Contact Form -->
-		<Section title="CONTACTO">
+		<Section title="CONTACTO" id="contact">
 			<Contact />
 		</Section>
 	</Main>

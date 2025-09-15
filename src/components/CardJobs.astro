@@ -1,15 +1,17 @@
 ---
-const { text } = Astro.props;
+const { text, image } = Astro.props;
 ---
 
 <div
-	class="group relative bg-[url('../assets/images/makeup_01.jpg')] bg-contain bg-no-repeat rounded-xl shadow-xl hover:shadow-2xl w-96 h-48 border-2 border-white transition-all duration-300 overflow-hidden"
+	class="group relative rounded-xl shadow-xl hover:shadow-2xl h-[500px] w-96 lg:w-48 lg:h-[300px] border-2 border-white transition-all duration-300 overflow-hidden lg:hover:border-pink-400"
 >
-	<a href="/contacto" class="boton-reservar text-white text-base">
+	<img src={image} alt={text} decoding="async" loading="lazy" class="lg:h-full w-full"/>
+
+	<a href="/contacto" class="text-6xl text-white lg:text-base">
 		<div
-			class="absolute left-0 right-0 bottom-0 top-[calc(100%-3rem)] py-2 flex justify-center items-center bg-gray-900/50 backdrop-blur-sm rounded-b-xl transition-all duration-500 group-hover:top-0 group-hover:rounded-xl"
+			class="absolute left-0 right-0 bottom-0 top-[calc(100%-5rem)] lg:top-[calc(100%-3rem)] py-2 flex justify-center items-center bg-gray-900/50 backdrop-blur-sm rounded-b-xl transition-all duration-500 group-hover:top-0 group-hover:rounded-xl"
 		>
-			<span class="transition-all duration-300 group-hover:text-4xl"
+			<span class="lg:transition-all lg:duration-300 lg:group-hover:text-4xl text-5xl lg:text-3xl"
 				>{text}</span
 			>
 		</div>

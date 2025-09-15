@@ -1,24 +1,49 @@
 <div
-	class="py-4 flex justify-between sticky top-0 bg-[#0f0f0f] z-50 items-center"
+	class="pt-12 pb-20 lg:pt-8 lg:pb-8 flex justify-between sticky top-0 bg-[#0f0f0f] z-50 items-center px-4 lg:px-0"
 >
+	<!-- Logo -->
 	<div class="relative">
 		<a
 			href="/"
-			class="flex-grow text-gray-800 dark:text-gray-200 text-xl font-semibold"
+			class="flex-grow dark:text-gray-200 text-xl font-semibold text-white"
 		>
-			<p class="underline text-3xl">Blanca Miguel</p>
-			<p class="absolute -bottom-6 right-0 text-base font-thin">
-				Maqullaje & Peluquería
+			<p class="underline text-7xl lg:text-4xl">Blanca Miguel</p>
+			<p class="absolute -bottom-12 lg:-bottom-6 right-0 text-4xl lg:text-lg font-thin">
+				Maquillaje & Peluquería
 			</p>
 		</a>
 	</div>
 
-	<nav class="">
+	<!-- Botón Hamburguesa para móvil -->
+	<div class="lg:hidden">
+		<button
+			id="menu-button"
+			class="relative z-50 flex flex-col w-16 h-12 justify-between items-center"
+		>
+			<span class="block w-full h-1 bg-white rounded"></span>
+			<span class="block w-full h-1 bg-white rounded"></span>
+			<span class="block w-full h-1 bg-white rounded"></span>
+		</button>
+	</div>
+
+	<!-- Menú desktop -->
+	<nav class="hidden lg:block">
 		<ul class="flex space-x-6 items-center">
 			<li>
 				<a
+					href="#portfolio"
+					class="relative group text-white dark:text-gray-300 font-semibold lg:text-3xl"
+				>
+					Portfolio
+					<span
+						class="absolute left-1/2 -bottom-1 h-[2px] w-0 transition-all duration-300 group-hover:w-full group-hover:left-0"
+					></span>
+				</a>
+			</li>
+			<li>
+				<a
 					href="#services"
-					class="relative group text-gray-600 dark:text-gray-300 font-semibold"
+					class="relative group text-white dark:text-gray-300 font-semibold lg:text-3xl"
 				>
 					Servicios
 					<span
@@ -28,30 +53,8 @@
 			</li>
 			<li>
 				<a
-					href="#portfolio"
-					class="relative group text-gray-600 dark:text-gray-300 font-semibold"
-				>
-					Portfolio
-					<span
-						class="absolute left-1/2 -bottom-1 h-[2px] w-0 transition-all duration-300 group-hover:w-full group-hover:left-0"
-					></span>
-				</a>
-			</li>
-			<!-- <li>
-				<a
-					href="#"
-					class="relative group text-gray-600 dark:text-gray-300 font-semibold"
-				>
-					Tarjeta Regalo
-					<span
-						class="absolute left-1/2 -bottom-1 h-[2px] w-0 transition-all duration-300 group-hover:w-full group-hover:left-0"
-					></span>
-				</a>
-			</li> -->
-			<li>
-				<a
 					href="#contact"
-					class="relative group text-gray-600 dark:text-gray-300 font-semibold"
+					class="relative group text-white dark:text-gray-300 font-semibold lg:text-3xl"
 				>
 					Contacto
 					<span
@@ -59,7 +62,7 @@
 					></span>
 				</a>
 			</li>
-			<li>
+			<li class="hidden">
 				<button
 					type="submit"
 					class="relative overflow-hidden rounded-md border border-transparent bg-white px-6 py-3 text-base font-medium text-black shadow-sm transition-colors duration-300 before:absolute before:inset-0 before:-translate-x-full before:transform before:bg-[linear-gradient(45deg,#a87f3e,#e9d7a2,#a87f3e)] before:transition-transform before:duration-300 before:ease-out hover:before:translate-x-0"
@@ -71,26 +74,47 @@
 	</nav>
 </div>
 
+<!-- Menú móvil overlay -->
+<div
+	id="mobile-menu"
+	class="fixed z-50 inset-0 bg-black/60 backdrop-blur-lg flex flex-col justify-center items-center space-y-32 text-white text-9xl lg:hidden transform scale-0 transition-transform duration-300"
+>
+	<a href="#portfolio" class="hover:text-yellow-300">Portfolio</a>
+	<a href="#services" class="hover:text-yellow-300">Servicios</a>
+	<a href="#contact" class="hover:text-yellow-300">Contacto</a>
+	<button
+		type="submit"
+		class="hidden px-8 py-3 bg-white text-black rounded-md shadow-md hover:bg-yellow-300 transition-colors"
+	>
+		RESERVAR
+	</button>
+	<button id="closeMenu" class="mt-24"> Cerrar ventana </button>
+</div>
+
+<script is:inline>
+	const menuButton = document.getElementById("menu-button");
+	const mobileMenu = document.getElementById("mobile-menu");
+	const closeMenu = document.querySelector("#closeMenu");
+
+	menuButton.addEventListener("click", () => {
+		mobileMenu.classList.toggle("scale-0");
+		mobileMenu.classList.toggle("scale-100");
+	});
+
+	closeMenu.addEventListener("click", () => {
+		mobileMenu.classList.toggle("scale-0");
+		mobileMenu.classList.toggle("scale-100");
+	});
+</script>
+
 <style>
-	/* Definición del degradado dorado */
-	:root {
-		--dorado-degradado: linear-gradient(45deg, #a87f3e, #e9d7a2, #a87f3e);
-	}
+	/* Definición del degradado dorado */ :root { --dorado-degradado: linear-gradient(45deg, #a87f3e, #e9d7a2, #a87f3e); } /* Efecto al pasar el cursor */ .group:hover { background: var(--dorado-degradado); color: var(--dorado-degradado); -webkit-background-clip: text; /* Recorta el fondo para que se ajuste al texto */ -webkit-text-fill-color: transparent; /* Hace el texto transparente */ background-clip: text; text-fill-color: transparent; } /* Estilo para la línea inferior */ .group:hover .absolute { background: var( --dorado-degradado ); /* Aplica el degradado a la línea inferior */ }
 
-	/* Efecto al pasar el cursor */
-	.group:hover {
-		background: var(--dorado-degradado);
-		color: var(--dorado-degradado);
-		-webkit-background-clip: text; /* Recorta el fondo para que se ajuste al texto */
-		-webkit-text-fill-color: transparent; /* Hace el texto transparente */
-		background-clip: text;
-		text-fill-color: transparent;
+	/* Animación de escala */
+	#mobile-menu.scale-0 {
+		transform: scale(0);
 	}
-
-	/* Estilo para la línea inferior */
-	.group:hover .absolute {
-		background: var(
-			--dorado-degradado
-		); /* Aplica el degradado a la línea inferior */
+	#mobile-menu.scale-100 {
+		transform: scale(1);
 	}
 </style>

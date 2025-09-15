@@ -19,11 +19,13 @@ import Navbar from "../components/Navbar.astro";
 		/>
 	</head>
 	<body>
-		<Navbar />
-		<!-- <Header /> -->
-		<main>
-			<slot />
-		</main>
-		<Footer />
+		<div class="container-hero px-8">
+			<Navbar />
+			<!-- <Header /> -->
+			<main>
+				<slot />
+			</main>
+			<Footer />
+		</div>
 	</body>
 </html>
